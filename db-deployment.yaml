@@ -41,9 +41,18 @@ spec:
           name: mysql
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: root
+              valueFrom :
+                secretKeyRef :
+                  name : mysql-secrets
+                  key :  password
+
             - name: MYSQL_DATABASE # Setting Database Name from a 'ConfigMap'
-              value: javatechie
+              valueFrom :
+                configMapKeyRef :
+                  name : db-config
+                  key :  dbName
+
+
           ports:
             - containerPort: 3306
               name: mysql

@@ -19,13 +19,28 @@ spec:
             - containerPort: 8080
           env:   # Setting Enviornmental Variables
             - name: DB_HOST   # Setting Database host address from configMap
-              value: mysql
+              valueFrom :
+                configMapKeyRef :
+                  name : db-config
+                  key :  host
+
             - name: DB_NAME  # Setting Database name from configMap
-              value: javatechie
+              valueFrom :
+                configMapKeyRef :
+                  name : db-config
+                  key :  dbName
+
             - name: DB_USERNAME  # Setting Database username from Secret
-              value: root
+              valueFrom :
+                secretKeyRef :
+                  name : mysql-secrets
+                  key :  username
+
             - name: DB_PASSWORD # Setting Database password from Secret
-              value: root
+              valueFrom :
+                secretKeyRef :
+                  name : mysql-secrets
+                  key :  password
 
 ---
 

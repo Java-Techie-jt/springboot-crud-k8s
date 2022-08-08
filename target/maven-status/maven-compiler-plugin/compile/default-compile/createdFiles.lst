@@ -1,0 +1,5 @@
+com\javatechie\crud\controller\OrderController.class
+com\javatechie\crud\entity\Order.class
+com\javatechie\crud\SpringbootCrudK8sExampleApplication.class
+com\javatechie\crud\service\OrderService.class
+com\javatechie\crud\repository\OrderRepository.class
